@@ -69,35 +69,37 @@ export default function Countdown() {
   const formatTime = (time: number): string => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2,"0")}`;
+    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
+      2,
+      "0"
+    )}`;
   };
 
-  const handleDurationChange=(e:ChangeEvent<HTMLInputElement>):void=>{
-  setDuration(Number(e.target.value) || "");
+  const handleDurationChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setDuration(Number(e.target.value) || "");
   };
 
-  return(
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 dark:bg-gray-900" >
-
+  return (
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 dark:bg-gray-900">
       <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-1/3 max-wd-md ">
-
         <h1 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200 text-center">
           Countdown Timer
         </h1>
 
         <div className="flex items-center mb-6">
           <Input
-          type="number"
-          id="duration"
-          placeholder="Enter duration in seconds"
-          value={duration}
-          onChange={handleDurationChange}
-          className="flex-1 mr-4 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200"
+            type="number"
+            id="duration"
+            placeholder="Enter duration in seconds"
+            value={duration}
+            onChange={handleDurationChange}
+            className="flex-1 mr-4 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200"
           />
-          <Button 
-          onClick={handleSetDuration}
-           variant={"outline"}
-           className="text-gray-800 dark:text-gray-200">
+          <Button
+            onClick={handleSetDuration}
+            variant={"outline"}
+            className="text-gray-800 dark:text-gray-200"
+          >
             Set
           </Button>
         </div>
@@ -108,28 +110,30 @@ export default function Countdown() {
 
         <div className="flex justify-center gap-4">
           <Button
-          onClick={handleStart}
-          variant={"outline"}
-          className="text-gray-800 dark:text-gray-200">
-            {isPaused ? "Resume":"Start"}
+            onClick={handleStart}
+            variant={"outline"}
+            className="text-gray-800 dark:text-gray-200"
+          >
+            {isPaused ? "Resume" : "Start"}
           </Button>
 
           <Button
-          onClick={handlePause}
-          variant={"outline"}
-          className="text-gray-800 dark:text-gray-200">
+            onClick={handlePause}
+            variant={"outline"}
+            className="text-gray-800 dark:text-gray-200"
+          >
             Pause
           </Button>
 
           <Button
-          onClick={handleReset}
-          variant={"outline"}
-          className="text-gray-800 dark:text-gray-200">
+            onClick={handleReset}
+            variant={"outline"}
+            className="text-gray-800 dark:text-gray-200"
+          >
             Reset
           </Button>
         </div>
       </div>
     </div>
   );
-
 }
